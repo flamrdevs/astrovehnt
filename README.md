@@ -1,6 +1,6 @@
 # astrovehnt
 
-Bento Portfolio Template using Astro + TailwindCSS
+Bento Portfolio Template using Astro, React & TailwindCSS
 
 ## Tech Stack
 
@@ -23,13 +23,13 @@ git clone https://github.com/flamrdevs/astrovehnt.git
 Install packages
 
 ```
-npm install
+pnpm i
 ```
 
-Start Vite development server
+Start Astro development server
 
 ```
-npm run dev
+pnpm dev
 ```
 
 ### Customization
