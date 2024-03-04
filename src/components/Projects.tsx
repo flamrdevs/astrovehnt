@@ -31,7 +31,6 @@ export default () => {
             <li key={project.title} className="flex items-center">
               <a
                 href={project.url}
-                target="_blank"
                 className={cn(
                   "group",
                   "flex items-center justify-between px-4 py-3 w-full",
@@ -39,6 +38,7 @@ export default () => {
                   "outline-none border border-neutral-4 hover:border-neutral-6 rounded-3xl",
                   "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-7 focus-visible:ring-offset-neutral-1"
                 )}
+                target="_blank"
                 aria-label="Open"
               >
                 <div className="flex flex-row items-stretch gap-5 pl-2">
