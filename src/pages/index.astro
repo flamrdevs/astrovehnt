@@ -1,0 +1,70 @@
+---
+import MainLayout from "~/layouts/MainLayout.astro";
+
+import Picture from "~/components/Picture.tsx";
+import About from "~/components/About.tsx";
+import Projects from "~/components/Projects.tsx";
+import DevelopedBy from "~/components/DevelopedBy.tsx";
+import Globe from "~/components/Globe.tsx";
+import Stacks from "~/components/Stacks.tsx";
+import Socials from "~/components/Socials.tsx";
+---
+
+<MainLayout>
+  <main
+    class="container mx-auto grid grid-cols-4 md:grid-cols-8 xl:grid-cols-12 grid-rows-8 md:grid-rows-5 xl:grid-rows-3 gap-4 md:gap-6 xl:gap-6 p-4 min-h-[140rem] sm:min-h-[100rem] md:min-h-[70rem] lg:min-h-[60rem] xl:min-h-[50rem]"
+  >
+    <div class="card col-span-4 row-span-1 md:row-span-2">
+      <Picture client:idle />
+    </div>
+    <div class="card col-span-4 row-span-1">
+      <About />
+    </div>
+    <div class="card col-span-4 row-span-1">
+      <Projects />
+    </div>
+    <div class="card col-span-4 row-span-1">
+      <DevelopedBy client:idle />
+    </div>
+    <div class="card col-span-4 row-span-2">
+      <Globe client:idle />
+    </div>
+    <div class="card col-span-4 row-span-1">
+      <Stacks />
+    </div>
+    <div class="card col-span-4 md:col-span-8 xl:col-span-4 row-span-1">
+      <Socials />
+    </div>
+  </main>
+</MainLayout>
+
+<style>
+  .card {
+    z-index: 1;
+    position: relative;
+    border: 1px solid transparent;
+    border-radius: 2rem;
+    background:
+      padding-box linear-gradient(rgb(var(--neutral-2)), rgb(var(--neutral-2))),
+      border-box linear-gradient(rgb(var(--neutral-4)), rgb(var(--neutral-3) / 0.5));
+    overflow: hidden;
+
+    @apply transition ring-2 ring-offset-0 ring-neutral-5 ring-offset-neutral-1;
+
+    &:hover {
+      @apply ring-offset-2 lg:ring-offset-4;
+    }
+  }
+
+  .card::after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url("/nnnoise.svg");
+    overflow: hidden;
+  }
+</style>
