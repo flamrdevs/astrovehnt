@@ -1,3 +1,5 @@
+// TODO : update about
+
 export default () => {
   return (
     <div className="flex flex-col items-start justify-between p-4 md:p-5 xl:p-6 w-full h-full">

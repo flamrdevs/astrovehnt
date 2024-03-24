@@ -1,3 +1,5 @@
+// TODO : update picture
+
 import { Avatar } from "./ui";
 import { Lucide } from "./icons";
 

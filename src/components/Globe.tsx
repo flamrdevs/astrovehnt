@@ -29,7 +29,13 @@ const Globe = () => {
       baseColor: [0.431, 0.431, 0.431],
       markerColor: [0.356, 0.356, 0.839],
       glowColor: [0.555, 0.555, 0.555],
-      markers: [{ location: [-7.5360639, 112.2384017], size: 0.1 }],
+      markers: [
+        {
+          // TODO : update location. https://cobe.vercel.app/docs/api#markers
+          location: [-7.5360639, 112.2384017],
+          size: 0.1,
+        },
+      ],
       onRender: (state) => {
         if (!pointerInteracting.current) phi += 0.005;
         state.phi = phi + r.get();

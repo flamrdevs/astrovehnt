@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 
+// TODO : colors
 import coloradix, { mauve, lime } from "@coloradix/tailwindcss";
 
 const radix = coloradix({
@@ -23,6 +24,7 @@ export default {
     },
     extend: {
       fontFamily: {
+        // TODO : fonts
         sans: ["Inter"].concat(defaultTheme.fontFamily.sans),
         mono: ["Roboto Mono"].concat(defaultTheme.fontFamily.mono),
       },
