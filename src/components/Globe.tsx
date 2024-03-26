@@ -4,6 +4,19 @@ import { useSpring } from "@react-spring/web";
 
 import cobe from "cobe";
 
+const color = (() => {
+  const convert = (v: string) => {
+    const n = Number(v);
+    if (isNaN(n)) throw new Error("color convert error");
+    return n / 255;
+  };
+
+  return <T extends [string, string, string]>(t: T) => [convert(t[0]), convert(t[1]), convert(t[2])] as [number, number, number];
+})();
+
+const getPropertyValueFrom = (style: CSSStyleDeclaration, varName: string) =>
+  style.getPropertyValue(varName).split(" ") as [string, string, string];
+
 const Globe = () => {
   const ref = useRef<HTMLCanvasElement | null>(null);
   const pointerInteracting = useRef<number | null>(null);
@@ -16,6 +29,9 @@ const Globe = () => {
     const onResize = () => ref.current && (width = ref.current.offsetWidth);
     window.addEventListener("resize", onResize);
     onResize();
+
+    const style = getComputedStyle(document.documentElement);
+
     const globe = cobe(ref.current!, {
       devicePixelRatio: 2,
       width: width * 2,
@@ -26,9 +42,9 @@ const Globe = () => {
       diffuse: 3,
       mapSamples: 16000,
       mapBrightness: 2,
-      baseColor: [0.431, 0.431, 0.431],
-      markerColor: [0.356, 0.356, 0.839],
-      glowColor: [0.555, 0.555, 0.555],
+      baseColor: color(getPropertyValueFrom(style, "--neutral-9")),
+      markerColor: color(getPropertyValueFrom(style, "--primary-9")),
+      glowColor: color(getPropertyValueFrom(style, "--neutral-11")),
       markers: [
         {
           // TODO : update location. https://cobe.vercel.app/docs/api#markers
